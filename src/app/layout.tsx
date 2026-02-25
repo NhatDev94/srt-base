@@ -35,7 +35,7 @@ export default function RootLayout({
           </div>
           <div className="flex-1 h-full p-4 relative">
             <Header />
-            {/* {children} */}
+            <div className="pt-14">{children}</div>
           </div>
         </div>
       </body>

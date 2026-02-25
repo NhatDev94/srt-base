@@ -3,22 +3,22 @@ import { LayoutDashboard, User, ChartColumnBig, FolderDot } from "lucide-react"
 export const sidebarMenu: SideBarMenuItem[] = [
   {
     title: "Dashboard",
-    path: "/dashboard",
+    href: "/",
     icon: LayoutDashboard,
   },
   {
     title: "Analytics",
-    path: "/analytics",
+    href: "/analytics",
     icon: ChartColumnBig
   },
   {
     title: "Projects",
-    path: "/projects",
+    href: "/analytics",
     icon: FolderDot
   },
   { 
     title: "Team", 
-    path: "/team",
+    href: "/analytics",
     icon: User  
   },
 ]
