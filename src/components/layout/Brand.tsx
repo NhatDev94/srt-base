@@ -1,9 +1,10 @@
 import Link from "next/link";
+import {WheatIcon} from 'lucide-react'
 
 const Brand = () => {
     return (
         <Link href="/" className="flex items-center gap-x-2 w-fit cursor-pointer">
-            <div className="w-10 h-10 rounded-full bg-gray-600 flex items-center justify-center text-xl font-semibold text-gray-200">A</div>
+            <WheatIcon className="size-8 text-red-500" />
             <p className="text-sm font-semibold">STR Miền Nam</p>
         </Link>
     )

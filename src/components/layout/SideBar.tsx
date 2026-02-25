@@ -1,4 +1,4 @@
-import { sidebarMenu } from "@/src/config/sidebar/sidebar.config";
+import { sidebarMenu } from "@/config/sidebar/sidebar.config";
 import Brand from "./Brand";
 import Link from "next/link";
 
