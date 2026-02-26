@@ -1,24 +1,83 @@
-import { SideBarMenuItem } from "./sidebar.type";
-import { LayoutDashboard, User, ChartColumnBig, FolderDot } from "lucide-react"
-export const sidebarMenu: SideBarMenuItem[] = [
+import { ChartColumnBig, LayoutDashboard } from "lucide-react"
+
+type NavMainType = {
+  title: string;
+  url: string;
+  items: MenuItemType[];
+}
+
+type MenuItemType = {
+  title: string;
+  url: string;
+  icon?: React.ComponentType<{ className?: string }>;
+}
+
+export const sidebarMenu: NavMainType[] = [
   {
-    title: "Dashboard",
-    href: "/",
-    icon: LayoutDashboard,
+    title: "Getting Started",
+    url: "#",
+    items: [
+      {
+        title: "Dashboard",
+        url: "/",
+        icon: LayoutDashboard,
+      },
+      {
+        title: "Analytics",
+        url: "/analytics",
+        icon: ChartColumnBig
+      },
+    ],
   },
   {
-    title: "Analytics",
-    href: "/analytics",
-    icon: ChartColumnBig
+    title: "Build Your Application",
+    url: "#",
+    items: [
+      {
+        title: "Routing",
+        url: "#",
+      },
+      {
+        title: "Data Fetching",
+        url: "#",
+      },
+      {
+        title: "Rendering",
+        url: "#",
+      }
+    ],
   },
   {
-    title: "Projects",
-    href: "/analytics",
-    icon: FolderDot
+    title: "API Reference",
+    url: "#",
+    items: [
+      {
+        title: "Components",
+        url: "#",
+      },
+      {
+        title: "File Conventions",
+        url: "#",
+      },
+      {
+        title: "Functions",
+        url: "#",
+      },
+
+    ],
   },
-  { 
-    title: "Team", 
-    href: "/analytics",
-    icon: User  
+  {
+    title: "Architecture",
+    url: "#",
+    items: [
+      {
+        title: "Accessibility",
+        url: "#",
+      },
+      {
+        title: "Fast Refresh",
+        url: "#",
+      }
+    ],
   },
 ]

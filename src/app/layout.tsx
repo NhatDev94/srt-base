@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { RootState } from "@/lib/redux/store";
+import ReduxProvider from "@/app/provider";
+
 import SideBar from "@/components/layout/SideBar";
 import Header from "@/components/layout/Header";
 
-import { RootState } from "@/lib/redux/store";
-import ReduxProvider from "@/app/provider";
 
 
 const geistSans = Geist({
@@ -40,15 +43,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ReduxProvider initialState={initialState}>
-          <div className="w-screen h-dvh flex bg-background text-background-foreground">
-            <div className="w-64 h-full border-r border-border">
-              <SideBar />
+          <SidebarProvider>
+            <div className="w-screen h-dvh flex bg-background text-background-foreground">
+                <SideBar />
+              <div className="flex-1 h-full p-4 relative">
+                <Header />
+                <div className="pt-14">{children}</div>
+              </div>
             </div>
-            <div className="flex-1 h-full p-4 relative">
-              <Header />
-              <div className="pt-14">{children}</div>
-            </div>
-          </div>
+          </SidebarProvider>
         </ReduxProvider>
       </body>
     </html>

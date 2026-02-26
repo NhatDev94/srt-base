@@ -1,31 +1,53 @@
+'use client';
+
 import { sidebarMenu } from "@/config/sidebar/sidebar.config";
 import Brand from "./Brand";
+
+import {
+    Sidebar,
+    SidebarContent,
+    SidebarFooter,
+    SidebarGroup,
+    SidebarGroupContent,
+    SidebarGroupLabel,
+    SidebarHeader,
+    SidebarMenu,
+    SidebarMenuItem,
+} from "@/components/ui/sidebar"
 import Link from "next/link";
+import SideBarMenuButtonCustom from "./SideBarMenuButtonCustom";
 
 
 const SideBar = () => {
-    
 
     return (
-        <div className="w-full py-2">
-           <div className="px-4">
-            <Brand />
-           </div>
-
-            <div className="">
-                <p className="px-4 mt-6 mb-2 text-xs font-normal text-muted-foreground">Home</p>
-                {
-                    sidebarMenu.map((item) => (
-                        <Link href={item.href} key={item.href} className="px-4 py-2 flex items-center gap-x-2 cursor-pointer hover:bg-accent">
-                            {item.icon && <item.icon className="w-4 h-4 text-foreground" />}
-                           <p className="text-sm font-normal text-foreground">
-                             {item.title}
-                           </p>
-                        </Link>
-                    ))
-                }
-            </div>
-        </div>
+        <Sidebar className="py-2">
+            <SidebarHeader className="px-4">
+                <Brand />
+            </SidebarHeader>
+            <SidebarContent>
+                {sidebarMenu.map((item) => (
+                    <SidebarGroup key={item.title}>
+                        <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
+                        <SidebarGroupContent>
+                            <SidebarMenu>
+                                {item.items.map((item) => (
+                                    <SidebarMenuItem key={item.title} >
+                                        <SideBarMenuButtonCustom url={item.url}>
+                                            <Link href={item.url}>
+                                                {item.icon && <item.icon className="w-4 h-4" />}
+                                                {item.title}
+                                            </Link>
+                                        </SideBarMenuButtonCustom>
+                                    </SidebarMenuItem>
+                                ))}
+                            </SidebarMenu>
+                        </SidebarGroupContent>
+                    </SidebarGroup>
+                ))}
+            </SidebarContent>
+            <SidebarFooter />
+        </Sidebar>
     )
 }
 
