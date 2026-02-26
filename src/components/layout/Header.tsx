@@ -15,7 +15,7 @@ const Header = () => {
 
 
     return (
-        <div className="absolute top-0 left-0 z-50 w-full h-14 p-4 border-b border-black/10 flex items-center justify-between">
+        <div className="sticky top-0 left-0 z-50 w-full h-14 bg-background border-b border-black/10 flex items-center justify-between">
             <div className="w-fit flex items-center gap-x-4">
                 <SidebarTrigger className="p-2 rounded-md hover:bg-gray-100" />
                 <h4 className="w-fit text-base font-semibold capitalize">{pathname.split("/").pop()?.replace("-", " ") || 'Dashboard'}</h4>

@@ -46,9 +46,9 @@ export default function RootLayout({
           <SidebarProvider>
             <div className="w-screen h-dvh flex bg-background text-background-foreground">
                 <SideBar />
-              <div className="flex-1 h-full p-4 relative">
+              <div className="flex-1 h-full relative">
                 <Header />
-                <div className="pt-14">{children}</div>
+                <div className="pt-14 px-4">{children}</div>
               </div>
             </div>
           </SidebarProvider>
