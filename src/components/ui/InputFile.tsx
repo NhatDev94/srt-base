@@ -43,13 +43,14 @@ const InputFile = forwardRef<HTMLInputElement, InputFileProps>(
                     aria-invalid={error}
                     autoComplete="off"
                     onChange={handleChange}
+                    className="cursor-pointer"
                 />
 
                 {preview && previewUrl && (
                     <img
                         src={previewUrl}
                         alt="preview"
-                        className="h-12 object-cover rounded border"
+                        className="h-12 object-cover rounded border border-border"
                     />
                 )}
             </div>

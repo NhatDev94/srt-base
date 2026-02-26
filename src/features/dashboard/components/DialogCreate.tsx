@@ -60,7 +60,7 @@ const DialogCreate = () => {
     }
     return (
         <>
-            <Button variant="outline" onClick={() => setOpen(true)}>Click Me</Button>
+            <Button onClick={() => setOpen(true)}>Click Me</Button>
             <Dialog open={open} onOpenChange={setOpen}>
                 <DialogContent className="sm:max-w-sm">
                     <DialogHeader>
