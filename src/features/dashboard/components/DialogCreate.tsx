@@ -29,7 +29,7 @@ import {
     InputGroupTextarea,
 } from "@/components/ui/input-group"
 import { Input } from "@/components/ui/input"
-import InputFile from "@/components/ui/InputFile"
+import InputFile from "@/components/common/InputFile"
 
 const formSchema = z.object({
     title: z
