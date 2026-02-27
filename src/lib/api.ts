@@ -1,6 +1,7 @@
+import Cookies from 'js-cookie';
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { BaseResponse } from "@/types/api.type";
-import { toast } from "sonner"; 
+import { toast } from "sonner";
 
 const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL || "https://api.str-miennam.com/v1",
@@ -13,7 +14,7 @@ const api = axios.create({
 // --- 1. REQUEST INTERCEPTOR: Gắn Token vào mỗi yêu cầu ---
 api.interceptors.request.use(
     (config: InternalAxiosRequestConfig) => {
-        const token = localStorage.getItem("access_token");
+        const token = Cookies.get('access_token'); // Lấy từ Cookie
         if (token && config.headers) {
             config.headers.Authorization = `Bearer ${token}`;
         }
@@ -43,7 +44,7 @@ api.interceptors.response.use(
                 break;
             case 401:
                 // LỖI CHƯA ĐĂNG NHẬP: Xóa token và đá về Login
-                localStorage.removeItem("access_token");
+                Cookies.remove("access_token");
                 toast.error("Phiên làm việc hết hạn, vui lòng đăng nhập lại");
                 if (typeof window !== "undefined") {
                     window.location.href = "/login";

@@ -3,13 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import { Toaster } from "@/components/ui/sonner"
-import { SidebarProvider } from "@/components/ui/sidebar"
 import { RootState } from "@/lib/redux/store";
 import ReduxProvider from "@/app/provider";
-
-import SideBar from "@/components/layout/SideBar";
-import Header from "@/components/layout/Header";
-
 
 
 const geistSans = Geist({
@@ -44,17 +39,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ReduxProvider initialState={initialState}>
-          <SidebarProvider>
-            <div className="w-screen h-dvh flex bg-background text-background-foreground">
-                <SideBar />
-              <div className="flex-1 h-full relative">
-                <Header />
-                <div className="pt-14 px-4">{children}</div>
-              </div>
-            </div>
-          </SidebarProvider>
+          {children}
         </ReduxProvider>
-        <Toaster richColors />
+        <Toaster richColors position="top-center" />
       </body>
     </html>
   );

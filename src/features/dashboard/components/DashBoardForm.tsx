@@ -46,7 +46,6 @@ const DashBoardForm = () => {
                 label: "Undo",
                 onClick: () => console.log("Undo"),
             },
-            position: "top-center",
         })
     }
     return <form onSubmit={form.handleSubmit(onSubmit)} className="w-full" >
