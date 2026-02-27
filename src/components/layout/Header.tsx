@@ -3,6 +3,7 @@
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { NavUser } from "./NavUser";
 import { usePathname } from "next/navigation";
+import { ThemeToggle } from "../common/ThemeToggle";
 
 const Header = () => {
     const user = {
@@ -20,7 +21,8 @@ const Header = () => {
                 <SidebarTrigger className="rounded-md hover:bg-gray-100" />
                 <h4 className="w-fit text-base font-semibold capitalize">{pathname.split("/").pop()?.replace("-", " ") || 'Dashboard'}</h4>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-x-4">
+                <ThemeToggle />
                 <NavUser user={user} />
             </div>
         </div>

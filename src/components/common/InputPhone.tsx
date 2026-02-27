@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, useState } from "react";
+import { forwardRef } from "react";
 import { Input } from "../ui/input";
 import { PatternFormat, PatternFormatProps } from "react-number-format"
 import { cn } from "@/lib/utils"
