@@ -1,38 +1,89 @@
 "use client";
 
-import { useState } from "react";
+import * as z from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Controller, useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "../hooks";
+import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field";
+import InputPassword from "@/components/ui/input-password";
+
+const formSchema = z.object({
+    email: z
+        .string()
+        .email("Please enter a valid email address."),
+    password: z
+        .string()
+        .min(6, "Mật khẩu tối thiểu 6 ký tự"),
+})
 
 export const LoginForm = () => {
     const { login, isLoading } = useAuth();
-    const [formData, setFormData] = useState({ email: "", password: "" });
 
+    const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            email: "",
+            password: "",
+        },
+    })
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        login(formData);
-    };
+    const handleSubmit = (data: z.infer<typeof formSchema>) => {
+        login(data);
+    }
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-sm p-6 bg-white rounded-xl shadow-md">
-            <h1 className="text-2xl font-bold text-center">STR Miền Nam</h1>
-            <div className="space-y-2">
-                <Input
-                    type="email"
-                    placeholder="Email"
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
+        <form onSubmit={form.handleSubmit(handleSubmit)} className="w-full" >
+            <FieldGroup>
+                <Controller
+                    name="email"
+                    control={form.control}
+                    render={({ field, fieldState }) => (
+                        <Field data-invalid={fieldState.invalid}>
+                            <FieldLabel htmlFor="form-rhf-email">
+                                Email
+                                <span className="text-destructive">*</span>
+                            </FieldLabel>
+                            <Input
+                                {...field}
+                                id="form-rhf-email"
+                                aria-invalid={fieldState.invalid}
+                                placeholder="Enter your email"
+                                autoComplete="off"
+                            />
+                            {fieldState.invalid && (
+                                <FieldError errors={[fieldState.error]} />
+                            )}
+                        </Field>
+                    )}
                 />
-                <Input
-                    type="password"
-                    placeholder="Mật khẩu"
-                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                    required
+                <Controller
+                    name="password"
+                    control={form.control}
+                    render={({ field, fieldState }) => (
+                        <Field data-invalid={fieldState.invalid}>
+                            <FieldLabel htmlFor="form-rhf-password">
+                                Password
+                                <span className="text-destructive">*</span>
+                            </FieldLabel>
+
+                            <InputPassword
+                                {...field}
+                                id="form-rhf-password"
+                                aria-invalid={fieldState.invalid}
+                                placeholder="Enter your password"
+                                autoComplete="off"
+                            />
+                            {fieldState.invalid && (
+                                <FieldError errors={[fieldState.error]} />
+                            )}
+                        </Field>
+                    )}
                 />
-            </div>
-            <Button type="submit" className="w-full" disabled={isLoading}>
+            </FieldGroup>
+
+            <Button type="submit" className="w-full mt-8" disabled={isLoading}>
                 {isLoading ? "Đang xác thực..." : "Đăng nhập"}
             </Button>
         </form>
