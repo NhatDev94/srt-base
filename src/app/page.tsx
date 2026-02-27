@@ -1,6 +1,7 @@
 import DashBoardForm from "@/features/dashboard/components/DashBoardForm";
 import DashBoardTable from "@/features/dashboard/components/DashBoardTable";
 import Demo from "@/features/dashboard/components/Demo";
+import DemoDate from "@/features/dashboard/components/DemoDate";
 import DialogCreate from "@/features/dashboard/components/DialogCreate";
 
 const DashBoardPage = () => {
@@ -14,6 +15,10 @@ const DashBoardPage = () => {
                 <div className="w-full sm:w-80 h-fit rounded-lg border border-border p-4">
                     <Demo />
                 </div>
+            </div>
+
+            <div className="w-full h-fit rounded-lg border border-border p-4">
+                <DemoDate />
             </div>
 
             <div className="w-full h-fit rounded-lg border border-border p-4">
