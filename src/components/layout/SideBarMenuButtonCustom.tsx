@@ -5,7 +5,6 @@ import { SidebarMenuButton } from "../ui/sidebar";
 
 const SideBarMenuButtonCustom = ({ children, url }: { children: React.ReactNode, url: string }) => {
     const pathname = usePathname();
-    console.log(pathname, url);
 
     return (
         <SidebarMenuButton asChild isActive={pathname === url}>

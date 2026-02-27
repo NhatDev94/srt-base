@@ -43,6 +43,7 @@ const InputFile = forwardRef<HTMLInputElement, InputFileProps>(
 
             // Gửi mảng File[] đi
             onChange?.(selectedFiles);
+            e.target.value = ""; // Reset input để có thể chọn lại cùng file nếu muốn
         };
 
         const handleRemove = (file: PreviewFile) => {
@@ -61,7 +62,7 @@ const InputFile = forwardRef<HTMLInputElement, InputFileProps>(
             return () => {
                 previewFiles.forEach((f) => URL.revokeObjectURL(f.previewUrl));
             };
-        }, [previewFiles]);
+        }, []);
 
         return (
             <div className="space-y-2">
@@ -108,13 +109,14 @@ const InputFile = forwardRef<HTMLInputElement, InputFileProps>(
                     <div className="w-full flex gap-1 flex-wrap">
                         {
                             previewFiles.map((file, index) => (
-                                <div key={file.file.lastModified} className="relative w-16 h-16 rounded border border-border shadow overflow-hidden select-none">
+                                <div key={file.previewUrl} className="relative w-16 h-16 rounded border border-border shadow overflow-hidden select-none">
                                     <Image
                                         src={file.previewUrl}
-                                        width={64}
-                                        height={64}
+                                        // width={64}
+                                        // height={64}
+                                        fill
                                         alt={`preview-${index}`}
-                                        className="w-16 h-16 object-cover"
+                                        className="object-cover"
                                     />
 
                                     <div

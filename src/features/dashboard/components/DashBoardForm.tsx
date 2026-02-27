@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { InputPhone } from "@/components/common/InputPhone"
 import { Button } from "@/components/ui/button"
 import InputFile from "@/components/common/InputFile"
+import { toast } from "sonner"
 
 const MAX_FILE = 3
 
@@ -39,6 +40,14 @@ const DashBoardForm = () => {
 
     const onSubmit = (data: z.infer<typeof formSchema>) => {
         console.log(data)
+        toast("Event has been created", {
+            description: "Sunday, December 03, 2023 at 9:00 AM",
+            action: {
+                label: "Undo",
+                onClick: () => console.log("Undo"),
+            },
+            position: "top-center",
+        })
     }
     return <form onSubmit={form.handleSubmit(onSubmit)} className="w-full" >
         <FieldGroup>

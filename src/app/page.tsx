@@ -1,16 +1,18 @@
-import { InputPhone } from "@/components/common/InputPhone";
-import { Input } from "@/components/ui/input";
 import DashBoardForm from "@/features/dashboard/components/DashBoardForm";
 import DashBoardTable from "@/features/dashboard/components/DashBoardTable";
+import Demo from "@/features/dashboard/components/Demo";
 import DialogCreate from "@/features/dashboard/components/DialogCreate";
 
 const DashBoardPage = () => {
     return (
         <div className="">
-            <div className="w-full h-fit flex gap-4 mb-8">
-                <div className="w-full sm:w-60 h-fit rounded-lg border border-border p-4">
+            <div className="w-full h-fit sm:flex sm:gap-4 mb-8">
+                <div className="w-full sm:w-80 h-fit rounded-lg border border-border p-4 mb-4 sm:mb-0">
                     {/* <h4 className="text-base font-semibold text-foreground"></h4> */}
                     <DashBoardForm />
+                </div>
+                <div className="w-full sm:w-80 h-fit rounded-lg border border-border p-4">
+                    <Demo />
                 </div>
             </div>
 

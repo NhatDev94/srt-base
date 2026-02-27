@@ -144,4 +144,9 @@
   input[type="file"]::file-selector-button {
     cursor: pointer;
   }
+
+  input[type="search"]::-webkit-search-cancel-button {
+    cursor: pointer;
+    padding: 2px;
+  }
 }

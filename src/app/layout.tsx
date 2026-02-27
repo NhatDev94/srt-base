@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { Toaster } from "@/components/ui/sonner"
+import { SidebarProvider } from "@/components/ui/sidebar"
 import { RootState } from "@/lib/redux/store";
 import ReduxProvider from "@/app/provider";
 
@@ -53,6 +54,7 @@ export default function RootLayout({
             </div>
           </SidebarProvider>
         </ReduxProvider>
+        <Toaster richColors />
       </body>
     </html>
   );
