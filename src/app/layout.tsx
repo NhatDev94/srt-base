@@ -4,7 +4,7 @@ import "./globals.css";
 
 import { Toaster } from "@/components/ui/sonner"
 import { RootState } from "@/lib/redux/store";
-import ReduxProvider from "@/app/provider";
+import AppProviders from "@/providers";
 
 
 const geistSans = Geist({
@@ -34,13 +34,13 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ReduxProvider initialState={initialState}>
+        <AppProviders initialState={initialState}>
           {children}
-        </ReduxProvider>
+        </AppProviders>
         <Toaster richColors position="top-center" />
       </body>
     </html>

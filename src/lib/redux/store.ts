@@ -1,13 +1,11 @@
 // lib/store.ts
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import layoutReducer from "@/lib/redux/slices/layoutSlice"
-import themeReducer from "@/lib/redux/slices/themeSlice"
 
 // 1. Kết hợp các reducers lại thành một Root Reducer
 // Việc này giúp bạn định nghĩa RootState mà không bị lỗi vòng lặp với makeStore
 const rootReducer = combineReducers({
     layout: layoutReducer,
-    theme: themeReducer
     // Thêm các reducer khác ở đây
 });
 
