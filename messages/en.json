@@ -1,0 +1,15 @@
+{
+    "Auth": {
+        "login": {
+            "title": "System Login",
+            "subtitle": "Enter your information to continue",
+            "email": "Email",
+            "emailPlaceholder": "Enter your email",
+            "password": "Password",
+            "passwordPlaceholder": "Enter your password",
+            "forgotPassword": "Forgot password?",
+            "submit": "Login Boris",
+            "authenticating": "Authenticating..."
+        }
+    }
+}

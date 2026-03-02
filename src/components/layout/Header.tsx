@@ -4,6 +4,7 @@ import { SidebarTrigger } from "@/components/ui/sidebar"
 import { NavUser } from "./NavUser";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "../common/ThemeToggle";
+import LanguageToggle from "../common/LanguageToggle";
 
 const Header = () => {
     const user = {
@@ -14,7 +15,6 @@ const Header = () => {
 
     const pathname = usePathname();
 
-
     return (
         <div className="sticky top-0 left-0 z-50 w-full h-14 bg-background border-b border-black/10 flex items-center justify-between">
             <div className="w-fit flex items-center gap-x-4 pl-4">
@@ -22,6 +22,7 @@ const Header = () => {
                 <h4 className="w-fit text-base font-semibold capitalize">{pathname.split("/").pop()?.replace("-", " ") || 'Dashboard'}</h4>
             </div>
             <div className="flex items-center gap-x-4">
+                <LanguageToggle />
                 <ThemeToggle />
                 <NavUser user={user} />
             </div>

@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { useAuth } from "../hooks";
 import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field";
 import InputPassword from "@/components/ui/input-password";
+import { useTranslations } from "next-intl";
 
 const formSchema = z.object({
     email: z
@@ -19,6 +20,7 @@ const formSchema = z.object({
 })
 
 export const LoginForm = () => {
+    const t = useTranslations('Auth.login')
     const { login, isLoading } = useAuth();
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -49,7 +51,7 @@ export const LoginForm = () => {
                                 {...field}
                                 id="form-rhf-email"
                                 aria-invalid={fieldState.invalid}
-                                placeholder="Enter your email"
+                                placeholder={t('emailPlaceholder')}
                                 autoComplete="off"
                             />
                             {fieldState.invalid && (
@@ -72,7 +74,7 @@ export const LoginForm = () => {
                                 {...field}
                                 id="form-rhf-password"
                                 aria-invalid={fieldState.invalid}
-                                placeholder="Enter your password"
+                                placeholder={t('passwordPlaceholder')}
                                 autoComplete="off"
                             />
                             {fieldState.invalid && (
@@ -84,7 +86,7 @@ export const LoginForm = () => {
             </FieldGroup>
 
             <Button type="submit" className="w-full mt-8" disabled={isLoading}>
-                {isLoading ? "Đang xác thực..." : "Đăng nhập"}
+                {t(isLoading ? 'authenticating' : 'submit')}
             </Button>
         </form>
     );

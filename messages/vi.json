@@ -1,0 +1,18 @@
+{
+    "Common": {
+        "Save": "Lưu"
+    },
+    "Auth": {
+        "login": {
+            "title": "Đăng nhập hệ thống",
+            "subtitle": "Nhập thông tin để tiếp tục",
+            "email": "Email",
+            "emailPlaceholder": "Nhập email của bạn",
+            "password": "Password",
+            "passwordPlaceholder": "Nhập mật khẩu của bạn",
+            "forgotPassword": "Quên mật khẩu?",
+            "submit": "Đăng nhập",
+            "authenticating": "Đang xác thực..."
+        }
+    }
+}
