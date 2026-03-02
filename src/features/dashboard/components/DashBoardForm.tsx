@@ -84,7 +84,6 @@ const DashBoardForm = () => {
                             // {...field} 
                             id="form-rhf-phone"
                             aria-invalid={fieldState.invalid}
-                            placeholder="Enter your phone number"
                             autoComplete="off"
                             onValueChange={(values) => {
                                 field.onChange(values.value)

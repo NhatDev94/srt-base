@@ -32,7 +32,7 @@ export default function LanguageToggle() {
             <DropdownMenuTrigger asChild>
                 <Button
                     variant="outline"
-                    className="gap-2 min-w-[120px] justify-start"
+                    className="gap-2 min-w-30 justify-start"
                     disabled={isPending} // Khóa nút khi đang xử lý
                 >
                     {isPending ? (

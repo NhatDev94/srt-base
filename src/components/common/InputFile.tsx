@@ -4,6 +4,7 @@ import { forwardRef, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Upload, X } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type InputFileProps = {
     onChange?: (file: File[] | []) => void;
@@ -22,6 +23,7 @@ type PreviewFile = {
 
 const InputFile = forwardRef<HTMLInputElement, InputFileProps>(
     ({ onChange, accept = "image/*", disabled, preview = false, error, maxFiles = 1, maxSizeMB = 20 }, ref) => {
+        const t = useTranslations('Common.upload')
         const [previewFiles, setPreviewFiles] = useState<PreviewFile[]>([]);
 
         const internalInputRef = useRef<HTMLInputElement | null>(null);
@@ -92,13 +94,13 @@ const InputFile = forwardRef<HTMLInputElement, InputFileProps>(
                         <Upload size={16} />
                         <span className="text-sm font-medium">
                             {previewFiles.length > 0
-                                ? `Đã chọn ${previewFiles.length} ảnh`
-                                : "Nhấn để chọn ảnh"}
+                                ? t('success', { count: previewFiles.length })
+                                : t('placeholder')}
                         </span>
                     </div>
                     {previewFiles.length > 0 && (
-                        <span className="text-xs text-muted-foreground uppercase">
-                            Thay đổi
+                        <span className="text-xs text-muted-foreground">
+                            {t('change')}
                         </span>
                     )}
                 </div>

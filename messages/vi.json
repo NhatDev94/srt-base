@@ -1,6 +1,12 @@
 {
     "Common": {
-        "Save": "Lưu"
+        "upload": {
+            "label": "Tải tệp lên",
+            "placeholder": "Nhấn để chọn tệp",
+            "dropzone": "Kéo thả tệp vào đây hoặc nhấn để chọn",
+            "success": "Đã chọn {count} tệp",
+            "change": "Thay đổi"
+        }
     },
     "Auth": {
         "login": {

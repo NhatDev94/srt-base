@@ -1,4 +1,13 @@
 {
+    "Common": {
+        "upload": {
+            "label": "Upload File",
+            "placeholder": "Click to select file",
+            "dropzone": "Drag and drop file here or click to select",
+            "success": "{count} file(s) selected",
+            "change": "Change"
+        }
+    },
     "Auth": {
         "login": {
             "title": "System Login",
