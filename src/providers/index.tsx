@@ -3,7 +3,7 @@ import ReduxProvider from "./ReduxProvider";
 import ThemeProvider from "./ThemeProvider";
 import { NextIntlClientProvider } from 'next-intl';
 
-interface Props {
+type Props = {
     children: React.ReactNode
     initialState: Partial<RootState>
 }

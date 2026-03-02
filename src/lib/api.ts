@@ -1,8 +1,7 @@
 import Cookies from 'js-cookie';
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { BaseResponse } from "@/types/api.type";
-import { toast } from "sonner";
-
+import { ApiError } from '@/types/api-error.type';
 const api = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL || "https://api.str-miennam.com/v1",
     timeout: 10000,
@@ -29,7 +28,13 @@ api.interceptors.response.use(
         // Nếu BE trả về success: false mặc dù status là 200
         const res = response.data as BaseResponse<any>;
         if (res && !res.success) {
-            toast.error(res.message || "Đã có lỗi xảy ra");
+            const apiError: ApiError = {
+                status: response.status,
+                message: res.message || "Có lỗi xảy ra",
+                errors: res.errors,
+            };
+
+            return Promise.reject(apiError);
         }
         return response;
     },
@@ -37,30 +42,43 @@ api.interceptors.response.use(
         const response = error.response as AxiosResponse<BaseResponse<any>>;
         const status = response?.status;
         const data = response?.data;
-
+        let apiError: ApiError;
         switch (status) {
             case 400:
-                toast.error(data?.message || "Dữ liệu không hợp lệ");
+                apiError = {
+                    status,
+                    message: data?.message || "Dữ liệu không hợp lệ",
+                    errors: data?.errors,
+                };
                 break;
             case 401:
                 // LỖI CHƯA ĐĂNG NHẬP: Xóa token và đá về Login
-                Cookies.remove("access_token");
-                toast.error("Phiên làm việc hết hạn, vui lòng đăng nhập lại");
-                if (typeof window !== "undefined") {
-                    window.location.href = "/login";
-                }
+                // Cookies.remove("access_token");
+                apiError = {
+                    status,
+                    message: "Phiên đăng nhập hết hạn",
+                };
                 break;
             case 403:
-                toast.error("Bạn không có quyền thực hiện hành động này");
+                apiError = {
+                    status,
+                    message: "Bạn không có quyền truy cập",
+                };
                 break;
             case 500:
-                toast.error("Hệ thống đang bảo trì, vui lòng quay lại sau");
+                apiError = {
+                    status,
+                    message: "Lỗi hệ thống",
+                };
                 break;
             default:
-                toast.error("Lỗi kết nối đến máy chủ");
+                apiError = {
+                    status,
+                    message: data?.message || "Lỗi kết nối đến máy chủ",
+                };
         }
 
-        return Promise.reject(error);
+        return Promise.reject(apiError);
     }
 );
 

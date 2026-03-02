@@ -1,16 +1,16 @@
-export interface User {
+export type User = {
     id: string;
     fullName: string;
     email: string;
     role: 'admin' | 'staff';
 }
 
-export interface LoginRequest {
+export type LoginRequest = {
     email: string;
     password: string;
 }
 
-export interface LoginResponse {
+export type LoginResponse = {
     accessToken: string;
     refreshToken: string;
     user: User;

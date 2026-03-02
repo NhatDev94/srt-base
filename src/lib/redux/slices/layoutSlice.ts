@@ -1,7 +1,7 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
-export interface LayoutState {
+export type LayoutState = {
   isCollapsed?: boolean;
 }
 
