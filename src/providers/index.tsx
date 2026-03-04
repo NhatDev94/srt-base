@@ -1,21 +1,19 @@
-import { RootState } from "@/lib/redux/store";
-import ReduxProvider from "./ReduxProvider";
 import ThemeProvider from "./ThemeProvider";
 import { NextIntlClientProvider } from 'next-intl';
+import TanstackProvider from "./TanstackProvider";
 
 type Props = {
     children: React.ReactNode
-    initialState: Partial<RootState>
 }
 
-const AppProviders = ({ children, initialState }: Props) => {
+const AppProviders = ({ children }: Props) => {
     return (
         <NextIntlClientProvider>
-            <ReduxProvider initialState={initialState}>
+            <TanstackProvider>
                 <ThemeProvider>
                     {children}
                 </ThemeProvider>
-            </ReduxProvider>
+            </TanstackProvider>
         </NextIntlClientProvider>
     )
 }

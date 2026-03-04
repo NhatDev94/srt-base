@@ -1,12 +1,12 @@
 import api from "@/lib/api";
 import { BaseResponse } from "@/types/api.type";
-import { LoginRequest, LoginResponse } from "../types/auth.type";
+import { Credentials, LoginResponse } from "../types/auth.type";
 
 const isDemo = true
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const authService = {
-    login: async (data: LoginRequest): Promise<BaseResponse<LoginResponse>> => {
+    login: async (data: Credentials): Promise<BaseResponse<LoginResponse>> => {
         if (isDemo) {
             await sleep(1500);
             if (data.email === "admin@gmail.com" && data.password === "Sam1234@") {

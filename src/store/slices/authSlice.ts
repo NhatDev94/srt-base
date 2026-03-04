@@ -1,20 +1,18 @@
+import { User } from '@/features/auth/types/auth.type'
 import { StateCreator } from 'zustand'
 
-type User = {
-    name: string,
-    email: string
-}
+// Demo thôi nha, ko quản lý token + user bằng global state, quản lý bằng cookie
 
 export type AuthSlice = {
     user: User | null,
-    isAuthenticated: boolean,
-    login: (userData: User) => void,
+    accessToken: string | null,
+    login: (userData: User, accessToken: string) => void,
     logout: () => void
 }
 
 export const createAuthSlice: StateCreator<AuthSlice> = (set) => ({
     user: null,
-    isAuthenticated: true,
-    login: (userData) => set({ user: userData, isAuthenticated: true }),
-    logout: () => set({ user: null, isAuthenticated: false })
+    accessToken: null,
+    login: (userData, accessToken) => set({ user: userData, accessToken }),
+    logout: () => set({ user: null, accessToken: null })
 })

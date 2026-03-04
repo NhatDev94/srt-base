@@ -5,10 +5,10 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useAuth } from "../hooks";
 import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field";
 import InputPassword from "@/components/ui/input-password";
 import { useTranslations } from "next-intl";
+import { useLoginMutation } from "../hooks";
 
 const formSchema = z.object({
     email: z
@@ -21,7 +21,7 @@ const formSchema = z.object({
 
 export const LoginForm = () => {
     const t = useTranslations('Auth.login')
-    const { login, isLoading } = useAuth();
+    const loginMutation = useLoginMutation()
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -32,7 +32,7 @@ export const LoginForm = () => {
     })
 
     const handleSubmit = (data: z.infer<typeof formSchema>) => {
-        login(data);
+        loginMutation.mutate(data);
     }
 
     return (
@@ -85,8 +85,8 @@ export const LoginForm = () => {
                 />
             </FieldGroup>
 
-            <Button type="submit" className="w-full mt-8" disabled={isLoading}>
-                {t(isLoading ? 'authenticating' : 'submit')}
+            <Button type="submit" className="w-full mt-8" disabled={loginMutation.isPending}>
+                {t(loginMutation.isPending ? 'authenticating' : 'submit')}
             </Button>
         </form>
     );
