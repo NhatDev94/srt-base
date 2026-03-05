@@ -1,6 +1,6 @@
 'use client';
 
-import { SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarTrigger } from "@nhatdev94/common-ui"
 import { NavUser } from "./NavUser";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "../common/ThemeToggle";

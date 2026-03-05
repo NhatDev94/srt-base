@@ -13,7 +13,7 @@ import {
     SidebarHeader,
     SidebarMenu,
     SidebarMenuItem,
-} from "@/components/ui/sidebar"
+} from "@nhatdev94/common-ui"
 import Link from "next/link";
 import SideBarMenuButtonCustom from "./SideBarMenuButtonCustom";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "@nhatdev94/common-ui";
 import { Upload, X } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";

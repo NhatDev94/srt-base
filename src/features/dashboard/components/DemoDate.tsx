@@ -1,5 +1,4 @@
-import { formatDate, formatDateTime, formatRelativeTime } from "@/lib/date"
-import { formatCompactNumber, formatCurrency, formatNumber } from "@/lib/number";
+import { formatDate, formatDateTime, formatRelativeTime, formatCompactNumber, formatCurrency, formatNumber } from "@nhatdev94/util"
 
 const DemoDate = () => {
     const now = new Date();
@@ -11,10 +10,10 @@ const DemoDate = () => {
     ];
 
     const testCases2 = [
-    { label: "Giá sản phẩm thấp", value: 15000 },
-    { label: "Giá sản phẩm cao", value: 25000000 },
-    { label: "Dữ liệu lỗi (Chuỗi chữ)", value: "abc-123" },
-  ];
+        { label: "Giá sản phẩm thấp", value: 15000 },
+        { label: "Giá sản phẩm cao", value: 25000000 },
+        { label: "Dữ liệu lỗi (Chuỗi chữ)", value: "abc-123" },
+    ];
     return <div className="">
         <h2 className="text-2xl font-semibold pb-2">Kiểm tra Định dạng Ngày tháng</h2>
 

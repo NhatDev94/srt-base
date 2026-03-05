@@ -1,9 +1,9 @@
 'use client';
 
 import { forwardRef } from "react";
-import { Input } from "../ui/input";
+import { Input } from "@nhatdev94/common-ui";
 import { PatternFormat, PatternFormatProps } from "react-number-format"
-import { cn } from "@/lib/utils"
+import { cn } from "@nhatdev94/common-ui"
 
 // Định nghĩa Props: kế thừa tất cả props của PatternFormat nhưng bỏ onChange mặc định
 // để tránh xung đột với React Hook Form

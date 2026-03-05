@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from "next/navigation";
-import { SidebarMenuButton } from "../ui/sidebar";
+import { SidebarMenuButton } from "@nhatdev94/common-ui";
 
 const SideBarMenuButtonCustom = ({ children, url }: { children: React.ReactNode, url: string }) => {
     const pathname = usePathname();

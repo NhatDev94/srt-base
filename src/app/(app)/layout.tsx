@@ -1,6 +1,6 @@
 import Header from "@/components/layout/Header"
 import SideBar from "@/components/layout/SideBar"
-import { SidebarProvider } from "@/components/ui/sidebar"
+import { SidebarProvider } from "@nhatdev94/common-ui"
 
 export default function AppLayout({
     children,

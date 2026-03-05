@@ -5,14 +5,14 @@ import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@nhatdev94/common-ui"
 import {
     Field,
     FieldDescription,
     FieldError,
     FieldGroup,
     FieldLabel,
-} from "@/components/ui/field"
+} from "@nhatdev94/common-ui"
 import {
     Dialog,
     DialogClose,
@@ -21,14 +21,14 @@ import {
     DialogFooter,
     DialogHeader,
     DialogTitle,
-} from "@/components/ui/dialog"
+} from "@nhatdev94/common-ui"
 import {
     InputGroup,
     InputGroupAddon,
     InputGroupText,
     InputGroupTextarea,
-} from "@/components/ui/input-group"
-import { Input } from "@/components/ui/input"
+} from "@nhatdev94/common-ui"
+import { Input } from "@nhatdev94/common-ui"
 import InputFile from "@/components/common/InputFile"
 
 const formSchema = z.object({

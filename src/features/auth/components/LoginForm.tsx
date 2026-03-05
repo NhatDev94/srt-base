@@ -3,10 +3,9 @@
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field";
-import InputPassword from "@/components/ui/input-password";
+import { Button } from "@nhatdev94/common-ui";
+import { Input, InputPassword } from "@nhatdev94/common-ui";
+import { Field, FieldError, FieldGroup, FieldLabel } from "@nhatdev94/common-ui";
 import { useTranslations } from "next-intl";
 import { useLoginMutation } from "../hooks";
 

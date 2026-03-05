@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { ButtonGroup } from "@/components/ui/button-group";
-import { Field, FieldLabel } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Button } from "@nhatdev94/common-ui";
+import { ButtonGroup } from "@nhatdev94/common-ui";
+import { Field, FieldLabel } from "@nhatdev94/common-ui";
+import { Input } from "@nhatdev94/common-ui";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@nhatdev94/common-ui";
 
 const Demo = () => {
     return <>

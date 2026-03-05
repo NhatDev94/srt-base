@@ -3,10 +3,10 @@
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
-import { Field, FieldError, FieldGroup, FieldLabel } from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
+import { Field, FieldError, FieldGroup, FieldLabel } from "@nhatdev94/common-ui"
+import { Input } from "@nhatdev94/common-ui"
 import { InputPhone } from "@/components/common/InputPhone"
-import { Button } from "@/components/ui/button"
+import { Button } from "@nhatdev94/common-ui"
 import InputFile from "@/components/common/InputFile"
 import { toast } from "sonner"
 

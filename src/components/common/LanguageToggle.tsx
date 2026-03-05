@@ -4,6 +4,7 @@ import { setUserLocale } from '@/i18n/locale-storage';
 import { useLocale } from 'next-intl';
 import { useTransition } from 'react';
 import {
+    Button,
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuLabel,
@@ -11,8 +12,7 @@ import {
     DropdownMenuRadioItem,
     DropdownMenuSeparator,
     DropdownMenuTrigger
-} from '../ui/dropdown-menu';
-import { Button } from '../ui/button';
+} from '@nhatdev94/common-ui';
 import { Languages, Loader2 } from 'lucide-react'; // Thêm Loader2 để làm icon quay
 
 export default function LanguageToggle() {
