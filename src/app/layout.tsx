@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import { Toaster } from "@/components/ui/sonner"
-import { RootState } from "@/lib/redux/store";
 import AppProviders from "@/providers";
 
 
@@ -28,17 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  // const authData = await getAuth();
-  const initialState: Partial<RootState> = {
-    // auth: authData,
-  };
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AppProviders initialState={initialState}>
+        <AppProviders>
           {children}
         </AppProviders>
         <Toaster richColors position="top-center" />
