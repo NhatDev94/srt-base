@@ -18,7 +18,12 @@
             "passwordPlaceholder": "Nhập mật khẩu của bạn",
             "forgotPassword": "Quên mật khẩu?",
             "submit": "Đăng nhập",
-            "authenticating": "Đang xác thực..."
+            "authenticating": "Đang xác thực...",
+            "success": "Đăng nhập thành công",
+            "failed": "Sai email hoặc mật khẩu"
+        },
+        "logout": {
+            "success": "Logged out successfully"
         }
     }
 }

@@ -5,9 +5,9 @@ export type User = {
     role: 'admin' | 'staff';
 }
 
-export type LoginRequest = {
-    email: string;
-    password: string;
+export type Credentials = {
+    email: string,
+    password: string
 }
 
 export type LoginResponse = {

@@ -18,7 +18,12 @@
             "passwordPlaceholder": "Enter your password",
             "forgotPassword": "Forgot password?",
             "submit": "Login Boris",
-            "authenticating": "Authenticating..."
+            "authenticating": "Authenticating...",
+            "success": "Login successful",
+            "failed": "Invalid email or password"
+        },
+        "logout": {
+            "success": "Logged out successfully"
         }
     }
 }

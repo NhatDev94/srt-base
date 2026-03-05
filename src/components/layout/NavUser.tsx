@@ -29,7 +29,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
-import { useAuth } from "@/features/auth/hooks"
+import { useLogoutMutation } from "@/features/auth/hooks"
 
 export function NavUser({
   user,
@@ -41,9 +41,9 @@ export function NavUser({
   }
 }) {
   const { isMobile } = useSidebar()
-  const { logout } = useAuth()
+  const logoutMutation = useLogoutMutation()
   const handleLogout = () => {
-    logout()
+    logoutMutation.mutate()
   }
 
   return (
