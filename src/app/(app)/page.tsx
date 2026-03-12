@@ -11,8 +11,8 @@ const ALL_EMPLOYEES = [
   // Bạn có thể nhân bản chúng lên để đủ 25 bản ghi cho giống totalElements
   ...Array(252).fill(null).map((_, index) => ({
     id: `uuid-${index}`,
-    employeeCode: `EMP2024${String(index + 1).padStart(5, '0')}`,
-    fullName: `Nhân viên số ${index + 1}`,
+    employeeCode: `orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ips EMP2024 ${String(index + 1).padStart(5, '0')}`,
+    fullName: `orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ips4viên số ${index + 1}`,
     position: index % 2 === 0 ? "Manager" : "Developer",
     phone: "0901234567",
     email: `staff${index}@srt.com`,
@@ -37,7 +37,7 @@ export const fetchEmployeesFake = async ({
   isDescending?: boolean;
 }) => {
   // 1. Giả lập delay mạng (để thấy Skeleton)
-  await new Promise((resolve) => setTimeout(resolve, 600));
+  await new Promise((resolve) => setTimeout(resolve, 100));
 
   // 2. LOGIC SEARCH: Lọc dữ liệu theo từ khóa (Không phân biệt hoa thường)
   let filteredData = [...ALL_EMPLOYEES];

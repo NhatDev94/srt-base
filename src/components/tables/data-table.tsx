@@ -19,7 +19,7 @@ import {
 
 import { BaseFilterRequest } from '@nhatdev94/util'
 
-import { Button, Checkbox, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger, Skeleton, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@nhatdev94/common-ui"
+import { Button, Checkbox, cn, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger, HoverCard, HoverCardContent, HoverCardTrigger, Skeleton, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, Tooltip, TooltipContent, TooltipTrigger } from "@nhatdev94/common-ui"
 import { DataTableFilter } from "./data-table-filter"
 import { DataTableViewOptions } from "./data-table-view-option"
 import { DataTablePagination } from "./data-table-pagination"
@@ -27,7 +27,8 @@ import { ArrowUpDown, MoreHorizontal } from "lucide-react"
 
 declare module "@tanstack/react-table" {
     interface ColumnMeta<TData, TValue> {
-        isSort?: boolean
+        isSort?: boolean,
+        maxWidthClassPixel?: string
     }
 }
 
@@ -51,6 +52,7 @@ interface DataTableProps<TData, TValue> {
     isSelect?: boolean,
     isLoading?: boolean,
     rowCount: number,
+    widthClassHoverCard?: string
     rowActions?: RowActionConfig<TData>[];
     tableAction?: (table: TableType<TData>) => React.ReactNode,
     onChange: ({ pageIndex, pageSize, keyword, sortBy, isDescending }: BaseFilterRequest) => void,
@@ -169,6 +171,7 @@ export function DataTable<TData, TValue>({
     rowIdName,
     emptyText = 'No results.',
     rowCount,
+    widthClassHoverCard = 'w-200',
     rowActions,
     onChange,
     tableAction
@@ -284,8 +287,19 @@ export function DataTable<TData, TValue>({
                                             onClick={() => row.toggleSelected(!row.getIsSelected())}
                                         >
                                             {row.getVisibleCells().map((cell) => (
-                                                <TableCell key={cell.id}>
-                                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                                <TableCell key={cell.id} className={cn('', cell?.column?.columnDef?.meta?.maxWidthClassPixel || '')}>
+                                                    {
+                                                        cell?.column?.columnDef?.meta?.maxWidthClassPixel ? <HoverCard openDelay={600} closeDelay={100}>
+                                                            <HoverCardTrigger asChild>
+                                                                <div className="overflow-hidden w-full line-clamp-1 text-ellipsis">
+                                                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                                                </div>
+                                                            </HoverCardTrigger>
+                                                            <HoverCardContent className={cn('flex w-120 flex-col gap-0.5 bg-background text-background-foreground', widthClassHoverCard)}>
+                                                                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                                            </HoverCardContent>
+                                                        </HoverCard> : flexRender(cell.column.columnDef.cell, cell.getContext())
+                                                    }
                                                 </TableCell>
                                             ))}
                                         </TableRow>

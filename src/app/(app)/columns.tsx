@@ -24,6 +24,9 @@ export const columns: ColumnDef<Employee>[] = [
   {
     accessorKey: "employeeCode",
     header: "Mã NV",
+    meta: {
+      maxWidthClassPixel: 'max-w-80'
+    }
   },
   {
     accessorKey: "fullName",

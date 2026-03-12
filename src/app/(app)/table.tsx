@@ -1,6 +1,7 @@
 'use client'
 
-import { DataTable, RowActionConfig } from "@nhatdev94/common-ui";
+import {  RowActionConfig } from "@nhatdev94/common-ui";
+import { DataTable } from "@/components/tables";
 import { columns, Employee } from "./columns";
 import { Button } from "@nhatdev94/common-ui";
 import { type Table } from "@tanstack/react-table";
